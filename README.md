@@ -42,7 +42,14 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-
+This classifier sorts posts from [r/AMCsAList](https://www.reddit.com/r/AMCsAList/),
+a public subreddit for members of AMC Theatres' A-List subscription. Posts
+aren't tied to one film or release — they cover reviews, theater and format
+questions (IMAX, Dolby, ScreenX), app issues, and complaints about showtimes
+and availability, with quality ranging from detailed firsthand reports to
+one-line jokes. The subreddit's flairs aren't reliable labels (a joke post is
+flaired *App Issue*; a complaint is flaired *Discussion*), so the classifier
+sorts posts into \<TODO: final labels\> instead.
 
 ---
 
