@@ -48,7 +48,7 @@ aren't tied to one film or release — they cover reviews, theater and format
 questions (IMAX, Dolby, ScreenX), app issues, and complaints about showtimes
 and availability, with quality ranging from detailed firsthand reports to
 one-line jokes. The subreddit's flairs aren't reliable labels (a joke post is
-flaired *App Issue*; a complaint is flaired *Discussion*), so the classifier
+flaired _App Issue_; a complaint is flaired _Discussion_), so the classifier
 sorts posts by why they were written, into three core labels —
 `question`, `review`, and `complaint` — plus a stretch fourth label, `psa`,
 for announcement-style posts (showtimes, policy changes, deals) that don't
@@ -70,33 +70,33 @@ Community: r/AMCsAList. Labels sort posts by **why the post was written**.
 
 **Definition:** The post asks for information or advice another member could give.
 
-- *"Garden State AMC ScreenX"*: "It appears that the construction of the ScreenX theater in Garden State Plaza in NJ is complete, but they have a rope in front of the doors. Anyone have any idea when it's supposed to actually open?"
-- *"Is AMC down for anyone else?"*: "Trying to entourage tickets for tonight, but regardless of time, theater, movie, or rating, I just keep getting the same 'Oops, an error has occurred; try again.' Was wondering if this was happening to anyone else currently or if my account is just bugged."
+- _"Garden State AMC ScreenX"_: "It appears that the construction of the ScreenX theater in Garden State Plaza in NJ is complete, but they have a rope in front of the doors. Anyone have any idea when it's supposed to actually open?"
+- _"Is AMC down for anyone else?"_: "Trying to entourage tickets for tonight, but regardless of time, theater, movie, or rating, I just keep getting the same 'Oops, an error has occurred; try again.' Was wondering if this was happening to anyone else currently or if my account is just bugged."
 
 ### `review`
 
 **Definition:** The post gives the poster's verdict on a movie they have seen, focused on the film itself.
 
-- *"La Bola Negra Is Stunningly Good"*: "Run, don't walk to see this movie. I was at the Burbank 16 and caught the Q&A with the directors…"
-- *"Sooo....Street Fighter did not have to go that hard"*: "Beautifully shot! Lots of funny moments. Camp as hell with minimal cheese and just when I thought I knew how it was going to end....they pulled a fast one on me."
+- _"La Bola Negra Is Stunningly Good"_: "Run, don't walk to see this movie. I was at the Burbank 16 and caught the Q&A with the directors…"
+- _"Sooo....Street Fighter did not have to go that hard"_: "Beautifully shot! Lots of funny moments. Camp as hell with minimal cheese and just when I thought I knew how it was going to end....they pulled a fast one on me."
 
 ### `complaint`
 
 **Definition:** The post criticizes AMC, a studio, or the theater experience, and isn't asking for help with a problem that's still happening.
 
-- *"Ramayana"*: "i was actually excited to watch this... and was surprised that there is no screening in los angeles. what a bummer"
-- *"Why are all the studios dropping great stuff in such a short period?"*: "There are 17 films out currently that I want to see… seriously, why do the studios drop so many good movies in such a short time frame?"
+- _"Ramayana"_: "i was actually excited to watch this... and was surprised that there is no screening in los angeles. what a bummer"
+- _"Why are all the studios dropping great stuff in such a short period?"_: "There are 17 films out currently that I want to see… seriously, why do the studios drop so many good movies in such a short time frame?"
 
 ### `psa`
 
 **Definition:** The post shares news or a fact about AMC, A-List, or upcoming releases, without giving a verdict on a movie or asking anything.
 
-- *"Nolan's The Prestige 1/29"*: "Was unsure which theatres would be getting this. I am very excited! Edit: AMC has shared this on their IG page"
-- *"Alex Gibney… is doing an AMA/Q&A in /r/movies today"*: "I organized an AMA/Q&A with Oscar-winning documentarian Alex Gibney… The AMA is live here now in r/movies for anyone interested in asking a question… He will be back after 2 PM ET today to answer questions."
+- _"Nolan's The Prestige 1/29"_: "Was unsure which theatres would be getting this. I am very excited! Edit: AMC has shared this on their IG page"
+- _"Alex Gibney… is doing an AMA/Q&A in /r/movies today"_: "I organized an AMA/Q&A with Oscar-winning documentarian Alex Gibney… The AMA is live here now in r/movies for anyone interested in asking a question… He will be back after 2 PM ET today to answer questions."
 
 ### Hardest boundary: `question` vs. `complaint`
 
-**Borderline post:** *"Musk - More Showtimes"*: "NYC based and spoiled with theater options, but somehow cannot find anymore Musk showings after work or on the weekend. Is it being phased out already? The Social Reckoning wasn't depressing enough for me that I'd like to sit through the 4 hours of this."
+**Borderline post:** _"Musk - More Showtimes"_: "NYC based and spoiled with theater options, but somehow cannot find anymore Musk showings after work or on the weekend. Is it being phased out already? The Social Reckoning wasn't depressing enough for me that I'd like to sit through the 4 hours of this."
 
 **Decision rule:** Apply these checks in order and stop at the first one that fits.
 
@@ -108,17 +108,17 @@ Community: r/AMCsAList. Labels sort posts by **why the post was written**.
 3. **`psa`:** The post shares news or a fact meant for other members to use (a release date, a policy change, an event), even if the poster sounds annoyed about it. **Test:** would another member do something differently after reading it (book a different showing, plan around an intermission, check a policy)? If yes, it's `psa`. If the post only describes the poster's own bad experience and gives readers nothing to act on, go to step 4.
 4. **`complaint`:** Everything else that criticizes AMC, a studio, or the theater experience.
 
-**Applied to the borderline post:** "Is it being phased out already?" can be answered with a fact, so *Musk - More Showtimes* is a `question`.
+**Applied to the borderline post:** "Is it being phased out already?" can be answered with a fact, so _Musk - More Showtimes_ is a `question`.
 
 **A finding from labeling:** this was the hardest boundary I predicted in Milestone 2, but in practice `psa` vs. `complaint` turned out to be harder — it's the boundary behind the Doctor Strange crowd-reaction case below and the psa vs. complaint hard case in [The Dataset](#the-dataset).
 
 ### Second boundary to watch: `review` vs. `complaint`
 
-*"The first five minutes of FJORD"* is about a movie the poster saw, but the whole post criticizes the studio logos before the film. Step 2 of the decision rule covers it: there's no verdict on the film, so it's a `complaint`.
+_"The first five minutes of FJORD"_ is about a movie the poster saw, but the whole post criticizes the studio logos before the film. Step 2 of the decision rule covers it: there's no verdict on the film, so it's a `complaint`.
 
 ### Boundaries `psa` adds
 
-- **`psa` vs. `question`:** *"Has AMC discontinued those cardboard popcorn boxes?"* reports news (a worker said the change "came from the top") but ends with "Has anyone else heard about this?"
+- **`psa` vs. `question`:** _"Has AMC discontinued those cardboard popcorn boxes?"_ reports news (a worker said the change "came from the top") but ends with "Has anyone else heard about this?"
 - **`psa` vs. `complaint`:** stress-test #8 ("the 4-reservation limit now counts tickets you already checked into… Found out the hard way") shares a fact, but in an annoyed tone.
 
 Both are covered by the decision rule above: the popcorn-box post is a `question` (step 1), and stress-test #8 is a `psa` (step 3).
@@ -142,8 +142,7 @@ Both are covered by the decision rule above: the popcorn-box post is a `question
 
 ### Posts left out of the dataset
 
-Mod and megathread posts, link or image-only posts, and posts that fit none of the four labels (for example the *"I think I have a problem"* concessions joke). I skipped 20 posts total: mod-sanctioned megathreads, image-only posts, personal stat logs ("A-List Report" style) with no verdict on any one movie, and jokes or asides with no question, verdict, news, or complaint in them.
-
+Mod and megathread posts, link or image-only posts, and posts that fit none of the four labels (for example the _"I think I have a problem"_ concessions joke). I skipped 20 posts total: mod-sanctioned megathreads, image-only posts, personal stat logs ("A-List Report" style) with no verdict on any one movie, and jokes or asides with no question, verdict, news, or complaint in them.
 
 ---
 
@@ -192,13 +191,13 @@ add more `complaint` examples, skipping anything already in the file.
 
 **Counts per label:**
 
-| Label | Count | Share |
-|---|---|---|
-| `review` | 127 | 39.6% |
-| `psa` | 86 | 26.8% |
-| `question` | 75 | 23.4% |
-| `complaint` | 33 | 10.3% |
-| **Total** | **321** | **100%** |
+| Label       | Count   | Share    |
+| ----------- | ------- | -------- |
+| `review`    | 127     | 39.6%    |
+| `psa`       | 86      | 26.8%    |
+| `question`  | 75      | 23.4%    |
+| `complaint` | 33      | 10.3%    |
+| **Total**   | **321** | **100%** |
 
 `complaint`, at about 10% of the data, will only have around 5 posts in a
 70/15/15 test split — small enough that its score will swing a lot between
@@ -207,25 +206,28 @@ seeds, the same caveat `criteria.md` already applies to `psa`.
 **Three hard cases**
 
 **1.**
-> *The post:* "2nd summer in a row my AMC has had a broken air conditioner" — a long, detailed account (corporate emails, the AC failing again this year) that ends with "Has anyone else experienced this at their local AMC? Or other longtime maintenance issues that are ignored?"
+
+> _The post:_ "2nd summer in a row my AMC has had a broken air conditioner" — a long, detailed account (corporate emails, the AC failing again this year) that ends with "Has anyone else experienced this at their local AMC? Or other longtime maintenance issues that are ignored?"
 >
-> *Could have been:* `question` or `complaint`.
+> _Could have been:_ `question` or `complaint`.
 >
-> *I chose, because:* I first labelled this `question`, reasoning the "anyone else" check was about a problem still happening. On reread I corrected it to `complaint` — the question is one line tacked onto several paragraphs of documented grievance, so it isn't the reason for the post. The "the question has to be the reason for the post" clause already existed (added for the "started early" case below); this is the case where I actually had to apply it to a heavily-venting post instead of a tidy one.
+> _I chose, because:_ I first labelled this `question`, reasoning the "anyone else" check was about a problem still happening. On reread I corrected it to `complaint` — the question is one line tacked onto several paragraphs of documented grievance, so it isn't the reason for the post. The "the question has to be the reason for the post" clause already existed (added for the "started early" case below); this is the case where I actually had to apply it to a heavily-venting post instead of a tidy one.
 
 **2.**
-> *The post:* "Returned to A-List" — "I just returned to A List after over a year and was pleasantly surprised to see 4dx was available and saw MK 2. For anybody on the fence, I think 4dx is a must for any 'fun' action movie."
+
+> _The post:_ "Returned to A-List" — "I just returned to A List after over a year and was pleasantly surprised to see 4dx was available and saw MK 2. For anybody on the fence, I think 4dx is a must for any 'fun' action movie."
 >
-> *Could have been:* `review` or `psa`.
+> _Could have been:_ `review` or `psa`.
 >
-> *I chose, because:* I first called this `review` since it's reacting to having seen a movie. But the verdict is on the 4DX format, not on Mortal Kombat 2 itself — and a format verdict isn't a movie verdict. Once I excluded that, step 3 fit instead: a reader could act on "4DX is available, try it for action movies." I corrected it to `psa`.
+> _I chose, because:_ I first called this `review` since it's reacting to having seen a movie. But the verdict is on the 4DX format, not on Mortal Kombat 2 itself — and a format verdict isn't a movie verdict. Once I excluded that, step 3 fit instead: a reader could act on "4DX is available, try it for action movies." I corrected it to `psa`.
 
 **3.**
-> *The post:* "just a heads up for any women going to AMC Lincoln Square anytime soon" — a detailed account of a man sitting uncomfortably close in a nearly empty theater, ending with "I wanted to remind everyone to be vigilant!"
+
+> _The post:_ "just a heads up for any women going to AMC Lincoln Square anytime soon" — a detailed account of a man sitting uncomfortably close in a nearly empty theater, ending with "I wanted to remind everyone to be vigilant!"
 >
-> *Could have been:* `psa` or `complaint`.
+> _Could have been:_ `psa` or `complaint`.
 >
-> *I chose, because:* I first labelled this `psa` because it opens with "heads up" like the other safety PSAs in the set. On a stricter reread, the problem is one person acting strange on one night, not something about the theater itself — unlike the mouse-at-Lincoln-Square or coyote-at-CityWalk posts, where the location is the actual, recurring source of the issue, so being alert there means something. This same man isn't reliably at AMC Lincoln Square; avoiding it wouldn't address anything. "Be vigilant" gives a reader nothing to actually act on. The post is overwhelmingly the poster's own unsettling experience, so I corrected it to `complaint`.
+> _I chose, because:_ I first labelled this `psa` because it opens with "heads up" like the other safety PSAs in the set. On a stricter reread, the problem is one person acting strange on one night, not something about the theater itself — unlike the mouse-at-Lincoln-Square or coyote-at-CityWalk posts, where the location is the actual, recurring source of the issue, so being alert there means something. This same man isn't reliably at AMC Lincoln Square; avoiding it wouldn't address anything. "Be vigilant" gives a reader nothing to actually act on. The post is overwhelmingly the poster's own unsettling experience, so I corrected it to `complaint`.
 
 ---
 
@@ -233,17 +235,29 @@ seeds, the same caveat `criteria.md` already applies to `psa`.
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`.
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate 2e-5, batch size 16, max length 128
+tokens, seed 42. Trained on an Apple Silicon GPU (MPS), torch 2.14.1.
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** Nothing — I kept the
+notebook's defaults for this first run so the baseline reflects the stock
+setup, not a tuning choice.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Split sizes:** 321 posts, stratified 70/15/15 → train 224, val 48, test 49.
+Per-label counts in the test split:
 
+| Label       | Train | Val | Test |
+| ----------- | ----- | --- | ---- |
+| `question`  | 52    | 11  | 12   |
+| `review`    | 89    | 19  | 19   |
+| `psa`       | 60    | 13  | 13   |
+| `complaint` | 23    | 5   | 5    |
 
+`complaint` has only 5 examples in the test split — under the notebook's own
+"thin" threshold of 8. With that few examples, its F1 can swing a lot between
+seeds, which is exactly what The Dataset section already flagged as a risk
+before training ever ran.
 
 ---
 
@@ -258,17 +272,40 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- _What I asked for:_ Pre-label the 307 empty rows in `labels.csv` against the
+  taxonomy and decision rule I'd already written in Milestone 2, and flag
+  anything genuinely close instead of guessing silently.
+- _What came back:_ A label and a note for every row, applying the four-step
+  rule in order, plus 21 rows flagged `unsure: X vs Y` and 18 rows flagged
+  `SKIP` for fitting none of the four labels.
+- _What I changed:_ Checking those `unsure` rows against the rule myself is
+  where most of my corrections came from — 7 of the 8 total, including "2nd
+  summer in a row my AMC has had a broken air conditioner" (question →
+  complaint, because the question was one line tacked onto paragraphs of
+  grievance) and "Returned to A-List" (review → psa, because the verdict was
+  on the 4DX format, not the movie). I also removed the 18 `SKIP` rows rather
+  than keep them.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- _What I asked for:_ A second pass, this time re-running every row labeled
+  `psa` (87 of them, most already confirmed in the first pass) back through
+  the step-3 "would another member do something differently" test, since
+  that was the label most likely to have absorbed venting disguised as a
+  heads-up.
+- _What came back:_ 86 confirmed, 1 flipped — "just a heads up for any women
+  going to AMC Lincoln Square" moved from `psa` to `complaint`, because "be
+  vigilant" gives a reader nothing concrete to act on, unlike the mouse- and
+  coyote-sighting posts that name a specific location worth being alert at.
+- _What I changed:_ Accepted that flip — my 8th and last correction — and
+  used it as a Dataset hard case. On a later feedback pass I caught that the
+  AI's first write-up of that case contradicted itself — it said "no theater
+  to avoid" in the same sentence the post names AMC Lincoln Square — and had
+  it rewritten around the actual reasoning: the problem was one person on one
+  night, not a theater-wide issue, so avoiding that location wouldn't do
+  anything.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** Yes. AI pre-labeled the 307 rows that weren’t cold-labeled, using my taxonomy and decision rule. I then read and checked every row myself and corrected 8 of them. The 24 cold rows were labeled by me with no AI help.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
@@ -282,22 +319,22 @@ of next unit's variance. -->
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
 
-| Measure | Baseline | Trained | Difference |
-|---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Measure          | Baseline | Trained | Difference |
+| ---------------- | -------- | ------- | ---------- |
+| Overall accuracy |          |         |            |
+| Macro F1         |          |         |            |
+| F1 — `label_one` |          |         |            |
+| F1 — `label_two` |          |         |            |
 
 **What I predicted before I looked:**
+
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
 
 **What the gap actually means:**
+
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
-
-
 
 ---
 
@@ -307,30 +344,29 @@ of next unit's variance. -->
      spread table; the Target and Verdict columns are yours. -->
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-|---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| --------- | ------ | ------- | ------ | --------- | ------- |
+| 1.        |        |         |        |           |         |
+| 2.        |        |         |        |           |         |
+| 3.        |        |         |        |           |         |
+| 4.        |        |         |        |           |         |
+| 5.        |        |         |        |           |         |
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted |     |     |     |
+| ---------------- | --- | --- | --- |
+| \*\*\*\*         |     |     |     |
+| \*\*\*\*         |     |     |     |
+| \*\*\*\*         |     |     |     |
 
 **My biggest off-diagonal number, and what it means:**
+
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
-
-
 
 ---
 
@@ -339,13 +375,13 @@ of next unit's variance. -->
 <!-- MET or MISSED against LAST UNIT's target. The target has to hold across
      all three seeds, not turn up sometimes. -->
 
-| # | Criterion | Target | Verdict | How I decided |
-|---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| #   | Criterion | Target | Verdict | How I decided |
+| --- | --------- | ------ | ------- | ------------- |
+| 1   |           |        |         |               |
+| 2   |           |        |         |               |
+| 3   |           |        |         |               |
+| 4   |           |        |         |               |
+| 5   |           |        |         |               |
 
 **Diagnoses**
 
@@ -358,8 +394,6 @@ of next unit's variance. -->
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
 
-
-
 ---
 
 ## Agreement Report
@@ -370,7 +404,7 @@ of next unit's variance. -->
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** **_ / 30 = _**%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -393,26 +427,26 @@ of next unit's variance. -->
      what you did across your own 200. -->
 
 **1.**
-> *The post:*
+
+> _The post:_
 >
-> *Staff said / I said:*
+> _Staff said / I said:_
 >
-> *My call, and why:*
+> _My call, and why:_
 >
-> *Which pile:*
+> _Which pile:_
 
 **2.**
-> *The post:*
+
+> _The post:_
 >
-> *Staff said / I said:*
+> _Staff said / I said:_
 >
-> *My call, and why:*
+> _My call, and why:_
 >
-> *Which pile:*
+> _Which pile:_
 
 **What the pattern in my disagreements tells me:**
-
-
 
 ---
 
@@ -425,19 +459,17 @@ of next unit's variance. -->
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-|---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| --------- | ------ | ------- | ------ | --------- | ------- |
+| 1.        |        |         |        |           |         |
+| 2.        |        |         |        |           |         |
+| 3.        |        |         |        |           |         |
+| 4.        |        |         |        |           |         |
+| 5.        |        |         |        |           |         |
 
 **Did it help, and how do I know:**
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
-
-
 
 ---
 
@@ -445,13 +477,10 @@ of next unit's variance. -->
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
-
-
 **The gap between what I meant my labels to capture and what the model
 learned:**
+
 <!-- Two sentences. Your confusion matrix is the evidence. -->
-
-
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
