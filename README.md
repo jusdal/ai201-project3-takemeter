@@ -49,7 +49,8 @@ questions (IMAX, Dolby, ScreenX), app issues, and complaints about showtimes
 and availability, with quality ranging from detailed firsthand reports to
 one-line jokes. The subreddit's flairs aren't reliable labels (a joke post is
 flaired *App Issue*; a complaint is flaired *Discussion*), so the classifier
-sorts posts into \<TODO: final labels\> instead.
+sorts posts by why they were written, into `question`, `review`, `complaint`,
+and `psa`.
 
 ---
 
@@ -61,34 +62,76 @@ sorts posts into \<TODO: final labels\> instead.
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `question`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** The post asks the community for specific information that another member could answer with a fact or their own experience.
 
 **Example 1:**
->
+> "Garden State AMC ScreenX": "It appears that the construction of the ScreenX theater in Garden State Plaza in NJ is complete, but they have a rope in front of the doors. Anyone have any idea when it's supposed to actually open?"
 
 **Example 2:**
->
+> "Is AMC down for anyone else?": "Trying to entourage tickets for tonight, but regardless of time, theater, movie, or rating, I just keep getting the same 'Oops, an error has occurred; try again.' Was wondering if this was happening to anyone else currently or if my account is just bugged."
+
+### `review`
+
+**Definition:** The post gives the poster's verdict on a movie they have seen, focused on the film itself.
+
+**Example 1:**
+> "La Bola Negra Is Stunningly Good": "Run, don't walk to see this movie. I was at the Burbank 16 and caught the Q&A with the directors…"
+
+**Example 2:**
+> "Sooo....Street Fighter did not have to go that hard": "Beautifully shot! Lots of funny moments. Camp as hell with minimal cheese and just when I thought I knew how it was going to end....they pulled a fast one on me."
+
+### `complaint`
+
+**Definition:** The post criticizes AMC, a studio, or the theater experience, and doesn't ask anything another member could answer.
+
+**Example 1:**
+> "Ramayana": "i was actually excited to watch this... and was surprised that there is no screening in los angeles. what a bummer"
+
+**Example 2:**
+> "Why are all the studios dropping great stuff in such a short period?": "There are 17 films out currently that I want to see… seriously, why do the studios drop so many good movies in such a short time frame?"
+
+### `psa`
+
+**Definition:** The post shares news or a fact about AMC, A-List, or upcoming releases, without giving a verdict on a movie or asking anything.
+
+**Example 1:**
+> "Nolan's The Prestige 1/29": "Was unsure which theatres would be getting this. I am very excited! Edit: AMC has shared this on their IG page"
+
+**Example 2:**
+> "Alex Gibney… is doing an AMA/Q&A in /r/movies today": "I organized an AMA/Q&A with Oscar-winning documentarian Alex Gibney… The AMA is live here now in r/movies for anyone interested in asking a question… He will be back after 2 PM ET today to answer questions."
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `question` vs. `complaint`
 
-**The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
+**The decision rule I used every time:** Apply these checks in order and stop
+at the first one that fits.
 
+1. **`question`:** The post asks something another member could answer with a
+   fact: a date, a policy, a yes/no, or "it's happening to me too." This
+   includes "anyone else?" checks about a concrete problem (an app error,
+   missing reservations), even when the tone is angry or the rest of the post
+   is a review or news. Rhetorical questions don't count, and neither do
+   requests to agree with an opinion ("Is it just me or are the recliners
+   getting worse?", "Why do studios release so much at once?").
+2. **`review`:** The post gives a verdict on a movie the poster saw (a
+   rating, a recommendation, or a clear "good/bad"). Problems with the
+   screening don't change this. If there's no verdict on the film, go to
+   step 4.
+3. **`psa`:** The post shares news or a fact meant for other members to use
+   (a release date, a policy change, an event), even if the poster sounds
+   annoyed about it.
+4. **`complaint`:** Everything else that criticizes AMC, a studio, or the
+   theater experience.
+
+**Borderline post:** *"Musk - More Showtimes"*: "NYC based and spoiled with
+theater options, but somehow cannot find anymore Musk showings after work or
+on the weekend. Is it being phased out already? The Social Reckoning wasn't
+depressing enough for me that I'd like to sit through the 4 hours of this."
+"Is it being phased out already?" can be answered with a fact, so this post
+is a `question`.
 
 
 ---
