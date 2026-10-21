@@ -53,60 +53,63 @@ whether you hit them:
 
 ## 1.
 
-<!-- Your criterion. It must name a number. -->
+Overall accuracy on the held-out test set is at least **0.75**.
 
-
-
-**Why this target:**
-
-
+**Why this target:** With four labels, random guessing gets about 25%, and
+always guessing my biggest label (`question`) would probably get around 40%.
+0.75 is well above both. It's high enough that I'd trust the model to sort a
+feed, but within reach for a small model trained on about 140 posts.
 
 ---
 
 ## 2.
 
-<!-- Your criterion. -->
+`question`, `review`, and `complaint` each have an F1 of at least **0.65** on
+the test set.
 
-
-
-**Why this target:**
-
-
+**Why this target:** I set this a little below my 0.75 accuracy target, since
+overall accuracy is roughly an average and some labels will score below it.
+`question` vs. `complaint` is my hardest boundary, so I expect those two to
+come in lowest. 0.65 is still clearly better than guessing.
 
 ---
 
 ## 3.
 
-<!-- Your criterion. -->
+`psa` has an F1 of at least **0.50** on the test set.
 
-
-
-**Why this target:**
-
-
+**Why this target:** `psa` will probably be my smallest label, with only
+about 3–4 posts in the test set, so each one changes its F1 a lot. I'm
+setting a lower target here because there are so few examples to measure, not
+because I expect less of the label.
 
 ---
 
 ## 4.
 
-<!-- Your criterion. -->
+No label is more than **40%** of `labels.csv`, and no label is under **10%**.
 
-
-
-**Why this target:**
-
-
+**Why this target:** The notebook's 70% cap is too loose for four labels —
+with four labels an even split is 25% each, so a label at 70% would mean the
+other three are splitting the remaining 30% between them, which isn't a
+four-way classifier anymore. **40%** lets one label lead by a wide margin
+(`question` is the label most at risk, because my rule counts "anyone else?"
+posts as questions) while still leaving the other three at least 20% each to
+share. **10%** is the floor because, at ~200 posts, 10% is about 20 examples
+— with a 70/15/15 split that's only 2–3 in the test set, which is already
+what I sized my `psa` F1 target around in #3. Below that, there'd be too
+little in either train or test to call the measurement meaningful.
 
 ---
 
 ## 5.
 
-<!-- Your criterion. -->
+My labels agree with the staff labels on at least **75%** of posts.
 
-
-
-**Why this target:**
-
+**Why this target:** People labeling posts with clear definitions usually
+agree on 70–85% of them. I expect most disagreements at the
+`question`/`complaint` boundary, especially on "anyone else?" posts that are
+really vents, so I aimed for the middle of that range rather than the top.
 
 
 ---
