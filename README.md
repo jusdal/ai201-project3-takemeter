@@ -321,15 +321,16 @@ before training ever ran.
 
 | Measure          | Baseline | Trained | Difference |
 | ---------------- | -------- | ------- | ---------- |
-| Overall accuracy |          |         |            |
-| Macro F1         |          |         |            |
-| F1 — `label_one` |          |         |            |
-| F1 — `label_two` |          |         |            |
+| Overall accuracy | 0.571    | 0.592   | +0.020     |
+| Macro F1         | 0.362    | 0.425   | +0.063     |
+| F1 — `complaint` | 0.000    | 0.000   | +0.000     |
+| F1 — `psa`       | 0.000    | 0.593   | +0.593     |
+| F1 — `question`  | 0.533    | 0.400   | -0.133     |
+| F1 — `review`    | 0.914    | 0.706   | -0.208     |
 
 **What I predicted before I looked:**
 
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+I predict the trained model's complaint F1 will beat the baseline's by at least 0.15. Zero-shot will confuse complaints with reviews, because both are negative and talk about the theater or the film. My definition separates them on whether the post is about the film itself, a distinction the trained model can learn from examples but BART-MNLI likely can't infer from one sentence.
 
 **What the gap actually means:**
 

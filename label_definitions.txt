@@ -5,6 +5,7 @@
 #
 # Delete the examples below and put yours in.
 
-analysis: makes an argument backed by a specific, checkable fact
-hot_take: a confident claim with no support offered
-reaction: an immediate response to something that just happened
+question: The post asks for information or advice another member could give
+complaint: The post criticizes AMC, a studio, or the theater experience, and isn't asking for help with a problem that's still happening
+review: The post gives the poster's verdict on a movie they have seen, focused on the film itself
+psa: The post shares news or a fact about AMC, A-List, or upcoming releases, without giving a verdict on a movie or asking anything
