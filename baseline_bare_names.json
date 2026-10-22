@@ -1,0 +1,285 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 49,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": false,
+  "scores": {
+    "n": 49,
+    "accuracy": 0.8367346938775511,
+    "f1_macro": 0.8061777866826955,
+    "per_label": {
+      "complaint": {
+        "precision": 0.75,
+        "recall": 0.6,
+        "f1": 0.6666666666666665,
+        "support": 5
+      },
+      "psa": {
+        "precision": 1.0,
+        "recall": 0.7692307692307693,
+        "f1": 0.8695652173913044,
+        "support": 13
+      },
+      "question": {
+        "precision": 0.631578947368421,
+        "recall": 1.0,
+        "f1": 0.7741935483870968,
+        "support": 12
+      },
+      "review": {
+        "precision": 1.0,
+        "recall": 0.8421052631578947,
+        "f1": 0.9142857142857143,
+        "support": 19
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "to my fellow A-listers... catch this before it's gone if you like comedy gross-out action thriller fun... Over Your Dead Body. Quick simple review no spoilers.\n\nMy theater was LOVING this... I didn't see it coming. Going in most people would know the concept but it really moves in a wild and crazy direction.\n\nIt's definitely lower budget but high end gross fun like the recent Ready or Not and They Will Kill You. \n\nSamara Weaving is great... as is Jason Segal...  but Juliette Lewis and Timothy Olyphant are wicked good. Man what a fun time. \n\nI wouldn't quite put this in the horror aisle but it feels like it should be. \n\nIt builds and builds...",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "Die My Love - sound warning!\n\nWent to see this movie over the weekend.  The film itself is okay, and I enjoyed the story/acting, but HOLY SHIT, the volume gets cranked to 11 during some of the scenes with music!\n\nI should have just put my earplugs in, because I had to cover my ears at least 3 separate times when songs would start blasting in some of the scenes. \n\nJust a heads up if you plan to see the movie.",
+      "gold": "review",
+      "predicted": "complaint"
+    },
+    {
+      "text": "Anybody else have a horrible crowd for Scream 7?\n\nI\u2019ve never had a group like this since maybe force awakens or Avengers: Endgame, both of which warranted such a level of excitement. The audience let out roaring yells and claps for every tiny thing. Every time Sydney or Gail so much as spoke, the entire theater erupted. Anytime ghostface was punched, smacked, or stabbed, screaming and clapping. There were some scenes I couldn\u2019t even hear because of the insane reaction of the audience.  Folks, I know the movie is called scream, but you don\u2019t have to act like animals  for a franchise that had 2 movies in the last 4 years\u2026\n\nAn already bad movie further ruined by a group of disrespectful people with no theater etiquette.",
+      "gold": "complaint",
+      "predicted": "question"
+    },
+    {
+      "text": "Rough night at the theater\n\nSeated waiting for Moana 2 to start and it\u2019s been a rough start to the evening. Wife and I were running late so we decided to just grab some concessions. They are out of basically everything. No pretzels, no hotdogs, no sauces. We eventually were able to get mozzarella sticks to share. Go up to pay and the cashier tells us they can\u2019t get stubs to work. Good thing my wife had activated $10 in rewards on the drive over. We head to our seats and no pre show is playing. The posted start time is 6:45. It is currently 6:57 and Noovie is still playing. No idea when trailers will even start.\n\nMaybe they\u2019re just recovering from the record breaking weekend? Idk. Never had quite so many things go wrong before the movie even begins.",
+      "gold": "complaint",
+      "predicted": "complaint"
+    },
+    {
+      "text": "Universal AMC fire alarm\n\nWas anybody else at the Universal AMC today when the fire alarms happened and everyone got kicked out? if so, do you know what happened?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "You Can See Everything (why you love movies)\n\nI sat through this engrossing film riveted. Two hours in I needed a bio break but I couldn\u2019t bring myself to leave. There I sat for the following hour locked in suspense of how does a film maker tie this film up without feeling like the purpose of the film was lost. \n\nA scene midway through the movie has the film maker saying goodbye to the protagonist of the story. It was truly uncomfortable because as the two stood before each other it seemed as if these two were more inclined to kiss each other goodbye than her husband. \n\nAs the movie drew to the end and the filmmaker tried to make sense of everything their relationship was about it became apparent he had deep feelings towards her and in the closing moments realized proving her innocence or guilty was not why he pursued her relentlessly He wanted her truth and he never got it.\n\nIts a must see and one you\u2019ll send days unpacking",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "Exit 8\n\nHave you ever had a nightmare where you're trapped in a boring, deserted liminal space with no escape? Based on a video game, Exit 8 is a Japanese psychological drama about a man stuck in an unending loop of the same (but not really) subway corridor and has to identify \"anomalies\" to progress to the exit. \n\nI enjoyed this movie for its unique concept and stylish directing. It really made me feel like playing a video game. There were some interesting social commentaries at play about how our monotonous lives are no different from being stuck in purgatory. Keep in mind that the movie did get repetitive due to the nature of the premise, and the way the main character kept spelling out every little thing was a bit grating. Overall, it's worth checking out for the concept alone. I don't know if there are any plan to expand, but at the moment Exit 8 is only playing at around 500 theaters. \n\nSide note: I learned about M. C. Escher and judicial scrivener thanks to the movie.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "SPOILER \"Sing Sing\" A-List pocket Review\n\n**SPOILER ahead**\n\nSeen at: AMC Southcenter, Seattle\n\nPremise: Colman Domingo is John \u201cDivine G\u201d Whitfield, an incarcerated man at Sing Sing prison, where he participates in a theater program known as Rehabilitation Through the Arts (RTA). He butts heads with and later befriends Clarence \u201cDivine Eye\u201d Maclin (a real life RTA performer playing a version of himself).\n\nPerformances: I loved watching the relationship unfold between Domingo and Maclin. Domingo is absolutely fantastic in this role and deserving of the many nods he's gotten so far (and hopefully an Oscar nom this week, too!). The rest of the ensemble cast, mostly RTA alumni playing themselves, are delightful. Sean San Jos\u00e9 is particularly effective as Mike Mike, Divine G\u2019s cellmate and friend, who is funny, sweet, and heartbreaking.\n\nWriting: Touching without being overly sentimental. A concise story, well-told by its players, that moves along swiftly.\n\nCinematography: Shot on 16mm, often with natural lighting, and lots of close-ups. Amplified the claustrophobic feeling of incarceration.\n\nRecommended for: Fans of movies about underdogs rising above the expectations placed on them and anyone following the Oscar nominations this year\n\nYou might also like to know:\n\n* No violence, but some strong language\n* Intense emotions\n* >!A main character dies unexpectedly !<\\[cw death\\]\n* The N-word is used briefly\n* Staff at the prison are visible but never have any lines\n\n**Overall: A, take your rough-around-the edges family member and have a nice lil cry**",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "\"Hot Spot\" A-List pocket Review\n\nWell it was 99 degrees outside so a movie in a cold theater sounded good, and when I read the description of \"Hot Spot\", a sci-fi movie with apparently a largely Polish production, I decided to see it.\n\nAnyway, I found \"Hot Spot\" to be, after the first few minutes, largely incomprehensible. The setup was pretty straightforward: In the near future, drought has consumed much of the world, and the lives of the few survivors is managed by \"the Head\", an AI system that regulates resource usage and much else. Everyone is plugged in to the Head by eating a gummy bear every 24 hours, and if you fail to eat it your head literally explodes. A gruesome murder occurs at one of many refugee camps, and a curly-mullet, 80s jumpsuit wearing detective is sent in to solve it. He encounters Noomi Rapace, who is playing the de facto leader of the refugees, and a reported \"cyber witch\". \n\nAnd then ... what follows is about 80 minutes of seemingly random dreamscapes, chattering between the curly detective and Noomi, an occasional naked woman, and exploding heads. I couldn't make sense of any of it, maybe I am just slow on the uptake, but I couldn't. And then it ends when a large cat appears. That's it.\n\nStill, I was glad I saw \"Hot Spot\". I left the theater with zero idea about how anything was resolved, but the incomprehensible scenes were stylishly shot and so I enjoyed them as isolated set pieces.\n\nC+ ... Randomly vague and opaque, but a fun watch anyway, at least for me. Mildly recommended for those in the mood for stream of consciousness, or something.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "How do we convince AMC to renovate a location?\n\nThis particular location I\u2019m talking about is AMC Classic South Bend 16. I\u2019m not from the Michiana area since I\u2019m from Chicago and have been to a lot of AMC locations across the suburbs, but I do have family down there whenever we see movies. At that specific location, I will say that the food is fine, but the real problem that I\u2019ve noticed is that the seats feel dirty and worn out. Every time I sat down, I was a little grossed out. The interior of the theater also needs to get remodeled, it feels like I\u2019m stuck in the 90s.\n\nNow 20 minutes away from the AMC, there\u2019s a mall nearby (University Park Mall) that has a vacant space in what used to be a Sears. Maybe AMC could move in that space but who knows? I know they need clearance from the city in order to make that happen.\n\nBut I\u2019m wondering how we can convince AMC to renovate this specific location because it\u2019s definitely needed.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Upgrades\n\nSo let me get this straight. I can order a medium popcorn, upgrade it to the large and then get the refill?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Show Other Movies\n\nI know I might be over exaggerating but I'm so tired of the two AMCs in my area showing only Blockbusters and Trending movies.\n\nI'm in NOVA and ya the Tysons mall location has/is under construction but there's so many movies that have realesed the past few weekends that won't be showing because they're to busy continuing to show spider man and the Odyssey. \n\nYes I could drive 10 miles towards DC to the other locations but just wanna know if anyone else feels this way with AMCs other locations.",
+      "gold": "complaint",
+      "predicted": "complaint"
+    },
+    {
+      "text": "How to tell 3D filter left on?\n\nHow do you tell that the 3d filter is left on from a showing? I was watching a movie that seemed off visually and the previous showing was a 3d movie in the theater while this one is not. From my research, it seems that looking at the projector window there were two duplicate images stacked vertically on each other. Does this for sure mean that it was left on and could there be other cases that it would be double? Other auditoriums only had one image in the window and not double like this.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Has AMC discontinued those cardboard popcorn boxes meant for sharing?\n\nI went to The Grove AMC this weekend and the concessions person told us they don't have those brown boxes for sharing popcorn anymore, in fact no theatre has them. We were told the decision came from the top of the company. They gave us weird paper trays instead.\n\nHas anyone else heard about this? I can't find any info on this anywhere and it seems like a very recent change. I also couldn't get a box at AMC Burbank 16 this past weekend but I guess I thought they just ran out of them, not that they were gone forever.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "PSA: Portrait of a Lady on Fire tickets are on sale in NYC\n\nOnly one showing at Kips Bay 7 pm on Wednesday 2/12 so far. I'm sure it will expand to Lincoln Square as well. I've been looking forward to seeing this for months.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "PSA: ANC Manteca 16 switching over to reserved seating (non reclining)\n\nJust an fyi this theatre will be moving to reserved seating but using their old seats, these are not the leather recliners nor are they adding Dolby theatres.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "Verity - thoughts?\n\nVerity was the first and last Colleen Hoover book I read to connect with my girlfriend who I was first dating at the time. She bought us both a copy. She never actually finished it, but I unfortunately did. I did actually enjoy It Ends With Us, and with  Anne Hathaway and Dakota Johnson involved, I thought \"why not? AMC A-List, baby!\" They might have what it takes to make this work. \n\nSo we watched it together last night. I was laughing, my girlfriend was gasping in disbelief at some scenes. I guess we are on what is called \"Team Letter.\" Anne served some great looks. Her performance was great. The movie was definitely better than the book, but I can't say I'll be rewatching it ever again. But.. enjoy!!!",
+      "gold": "review",
+      "predicted": "question"
+    },
+    {
+      "text": "Nimrods\n\nJust finished the movie. I thought it was pretty dumb and cheesy but worth an A-list spot I guess. I loved Green Day growing up and I wanted to see more of their vibe. \n\nWhat do y\u2019all think?",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "PSA: Alamo Drafthouse to open first Los Angeles location next month...for those in DTLA that hate not having an AMC around\n\nFor downtown Los Angeles residents that have been annoyed that AMC doesn't have a location nearby, Alamo Drafthouse opens their [first Los Angeles location](https://ktla.com/2019/06/20/alamo-drafthouse-set-to-open-long-awaited-downtown-l-a-location-in-july/) next month. They are also including this location with their version of a subscription service.\n\nWhile I don't plan on giving up my A-List subscription, it'll be interesting to see how this new entry into the exhibitor space in LA will effect AMC, Regal, Arclight, and Pacific.\n\nI have heard so much about Alamos amazingly strict \"no talking/texting\" policy. Wish AMC would adopt something similar.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "PSA on Tenet in IMAX vs Dolby\n\nTenet wasn\u2019t mixed with an Atmos track. So if you were on the fence on what version to see, IMAX will be the clear winner.  Don\u2019t get me wrong, Dolby Cinema will still sound good, but with the film being shot on IMAX, half the benefit of the Dolby Cinema version is lost.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "Best AMCs in North Jersey?\n\nWhere I live in north New Jersey, I can drive to the following AMCs in 30 minutes, which is about the amount of time it would take me to get into Manhattan anyway: \n\nAMC Clifton Commons   \nAMC Dine-In Essex Green  \nAMC Jersey Gardens   \nAMC Aviation  \nAMC Wayne   \nAMC Newport  \nAMC Ridgefield Park 12  \nAMC Garden State Plaza  \nAMC Dine-In Shops at Riverside   \nAMC East Hanover 12  \nAMC Mountainside   \nAMC Rockaway \n\nPlus ones in Morristown or Brunswick that aren\u2019t much farther \n\nIve been to 3 of these so far, none of which have been bad, but none of which have been great.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "New showtimes for Titanic in Dolby3D\n\nPSA, just saw that my local theater just added Titanic in Dolby 3D.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "The Boy and the Heron review\n\nThe Boy and the Heron was a big let down in all honesty. I have seen all studio Ghibli movies and this was among the worst. I saw a few good reviews and so I was really looking forward to it but I was disappointed.\n\nMy local theater only had the Japanese version with subtitles which I was fine with after watching Godzilla minus one. Sometimes I feel like I am not able to pick up on tones and context with foreign films. Might be in my head but I experienced this feeling a lot when watching \"Parasite\".\n\nThe movie starts out really slow and doesn't gain much speed until maybe the last 30 minutes. Truly a confusing movie and I was trying to pay attention as much as possible. After the movie I felt like I kinda understood it but I just wasn't sure. None of it was really compelling and felt like it could have been 20-30min shorter. My main issue with this movie was the writers leading you on for way too long. I enjoy that feeling of \"whats going on?\" and trying to figure out whats happening but when thats basically the whole movie it feels like a big tease, especially when theres no pay off.\n\nIf you have an empty slot to fill for A list and you've seen everything else then give it a shot. Otherwise I would definitely avoid this movie. Cant recommend it at all.\n\nwould love to hear what you all thought!",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "War (2019) My first foray into Bollywood\n\nThree of the local AMCs in the Seattle area regularly show Independent releases, Foreign films, Documentaries etc. Stuff you would normally have to go to an Arthouse Theater for. Sometimes scheduling is limited but they are almost always included in A-List. \n\nSo last night I went to my first Bollywood film, War. In Hindi with English Subtitles. (IHO Slumdog Millionaire doesn't truly count as Bollywood) Best as I can tell, this movie is a big deal because two top Bollywood stars are in this movie together for the first time ever. Hrithik Roshan and Tiger Shroff are action stars and their movies seem to include wild stunts and chases-then they also sing and dance. It also seems like they have their shirts off as much as possible and their hair is always perfect.\n\nThe film was shown in one of the smaller capacity theaters but there were a LOT of people there and probably 90% people of Indian background.(I'm in the other 10%). Here are some general impressions and observations of the movie, with no spoilers.\n\nThe movie starts with a nice disclaimer I thought. There was a title card that basically said, this movie is a work of fiction. The filmmakers are not trying to say one group, religion, ethnicity etc. is better than another or inherently evil. We are just trying to tell a story. Have fun and enjoy!\n\nThe basic premise of the story is that a special ops soldier in the Indian army, Kabir (played by Roshan) has gone rogue and is killing Indian Government officials. His old team led by his former apprentice, Khalid (played by Shroff) is tasked to eliminate him. The chase for Kabir literally goes all over the world and includes as many big stunts as their budget would allow for.\n\nI felt that I lost some impact due to my unfamiliarity with some of the actors and actresses. There were clearly some big dramatic entrances designed to hype up the audience. There were also some cheesy moments that I was unsure if they were purposely cheesy or unintentional. For example, a truck explodes the camera pans to the fireball in slow motion while Kabir comes into the shot through the fireball riding a motorcycle with big dramatic music. Since discretion is the better part of valor, I suppressed some laughs several times.\n\nSince this is an action movie, I was wondering how the Bollywood dance numbers would be worked in. We got one in the first act. Khalid celebrates his acceptance into Kabir's elite special ops unit by attending a color festival. We got the other late in the second act when \"boy meets girl\" (Kabir meets his love interest) In general, I like dance numbers so I enjoyed both of them.\n\nI did not realize that it is standard to have an intermission (interval it's called) in Indian movies. I gather in India everyone takes a break, gets snacks etc. At my showing the screen said \"Interval\" faded to black and then after a few seconds continued with the rest of the movie. At first I was a little confused because the next scene looked like a PSA for good sportsmanship filmed at a kids soccer game but it was actually us getting introduced to a new character (the love interest's young daughter)\n\nAnyway, this movie was loads of fun. Yes it was cheesy and overly dramatic at times but it looked beautiful, had a good classic action movie story, and a lot of really big awesome looking stunts (There is an airplane scene that is just as good if not better than the airplane scene in The Dark Knight Rises). I am definitely doing some research to find other Bollywood movies to watch and keeping current on upcoming releases.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "F1 Kips Bay cancelled\n\nHeads up! AMC Kips Bay cancelled the F1 premieres tonight due to no AC in the IMAX theater . They gave away free passes as compensation. Not sure if this is a one day thing",
+      "gold": "psa",
+      "predicted": "question"
+    },
+    {
+      "text": "Google is already showing Demon Slayer showtimes\n\nNot sure what's going on, but if you google Demon Slayer the Movie, google pulls up showtimes at my local AMC IMAX in Rockaway nj and others in paramus and east hanover for friday.\n\nYet, if you click the 7pm time and try to go to amc's site it shows an error message. Nothing on Atom tickets too when you click that.\n\nJust a heads up. I mention this as it says on the [main website April 9th for dates/times](https://www.funimationfilms.com/movie/demon-slayer-movie/). Not sure if this film works with A-list though. I'm still going no matter what.",
+      "gold": "psa",
+      "predicted": "question"
+    },
+    {
+      "text": "The Furious\n\nThe Furious is a Hong Kong movie about a supposedly ordinary guy fighting his way through a child trafficking ring to save his daughter. This is the best action film I've seen this year. The movie is filled to the brim with spectacular fight choreograph: grappling moves, close quarter fighting, bare-handed combat, improvised weapons. The last 30 minutes is especially exhilarating and doesn't leave a moment to breath until the last brawl is over. \n\nThe dialogue is half English and half Chinese, but honestly you don't even need the subtitles to understand the paper-thin plot. The story is just an excuse for the main character to pull off elaborate fight stunts in a narrow hallway and bash the bad guys' skulls in with a hammer. If that's your thing then this movie is a banger. Go see it this week because showings are fairly limited and you don't want to miss it.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "PSA to DC/MD/NOVA Residents: AMC Tysons Corner now has IMAX with Laser\n\nThought you all might be interested, going to see Penguins there on Friday.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "\"The Mummy Returns\" (2001) A-List pocket Review\n\nWell it is hard to believe that is has been a quarter-century since Universal unleashed the sequel to its highly successful 1999 \"The Mummy\" film on us. Released a few months after the political drama of the Bush-Gore election, and a few months before the horror of 911, \"The Mummy Returns\" did great box office (I saw it during its original run) as a swashbuckling action-adventure film. So now we get a 25th anniversary release, and I decided to see it via A-List.\n\nAnyway, \"The Mummy Returns\" has the same strengths and weaknesses as it did back at the dawn of the Millennium. On the plus side, the preternaturally gorgeous Rachel Weisz, still in the full bloom of youth, lights up the screen. Brendan Fraser brings his goofy charm as the Indiana Jones clone, and they have good couple-chemistry. And historically, this is the film debut of The Rock, whose career outside of wrestling failed to launch and was never heard from again (LOL).\n\nBut mostly the film remains bad. The main reason is the creators decided to go hog-wild on CGI, so we get a constant blizzard of computer created mummies, massed desert armies, evil Egyptian gods and other sundry creatures, including the Rock's mug on a Scorpion's body. Looking back, we can trace the bad trend of action (and horror) directors assaulting our senses with never-ending waves of creatures to this film. The human characters, who are played by good actors with charisma, are just never allowed to really interact, because the next wave of attacks is right around the corner.\n\nC-minus. Disappointing sequel to \"The Mummy\". See it for nostalgic reasons only.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "The lack of a family plan/kids plan is stopping me from going back to A list.\n\nIt was easy for the wife and I could easy enough justify the price of our two subscriptions and see 2-3 movies a month.  But no kids/family plan means the price sky rockets if we wanna take our child with us. Imax and dolby kids tickets are $18 and $17 respectively here. Yes the small inferior format screens are less for a kids ticket, but then we also get a worse time, and still two kids tickets in those are more than the cost of an adult a list membership per month.\n\nI know im rambling and preaching the the choir, but man it sucks. I grew up going to the movies with dad a few times a month, but I cant afford to do the same for my baby but if there was an alist sub for kids/families I could. I dunno just wanted to vent have a nice day",
+      "gold": "complaint",
+      "predicted": "complaint"
+    },
+    {
+      "text": "\"Mad Bills To Pay\" A-List pocket Review\n\nWell after a week away at sea, I was eager to resume some movie viewing, and this film seemed like it could be interesting. \"Mad Bills To Pay\" is presented mostly in English, but there are some scenes in Spanish, and those have subtitles.\n\nAnyway, Rico is a 19-year old Dominican man living in the Bronx with his overworked mother and mercurial younger sister. He passes his time hanging out on the streets, and peddling homemade cocktail concoctions at the local beach while trying to dodge beach patrols. The home situation is stressed by poverty and arguments are frequent. Then, a girlfriend enters the picture, and more drama ensues.\n\nWell, I liked this movie more than I suspected I would. The director obviously has a feel for life in the Dominican community in the Bronx, and so we get a pretty deeply-felt slice of life movie to watch. The characters seem real and so we care about their trials and tribulations, trying to get by under tough conditions. The movie doesn't sugar coat life on this terrain, and if you are looking for happy endings you will be disappointed. But I was engaged throughout.\n\nB ... above average Hispanic-American movie, recommended.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "What's you favorite format?\n\nOne of the best benefits of A list is the ability to choose from different formats. I've tried almost all of them save for screen x, and I can say Dolby wins me over. \n\nThe gargantuan, clear screen. The sound the radiates through the room and through your seat. Pretty much every movie I've seen has been incredible in this format. And the seats are comfortable. They recline. I'd go to more IMAX showings if the seats were better. They give economy plane seats a run for their money when it comes to making you uncomfortable. \n\nAt the end of the day, I will still see a good film regardless of format. I just notice that Dolby is an amazing go to. How about all of you? What's your favorite?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Dhurandhar: The Revenge- 4 hours of fun!\n\nSo I only caught the first two hours of Part 1, but figured I should catch the sequel while still in theaters\u2026 it\u2019s pretty important to watch the first, but I still had a blast. Crazy action, violence and a great soundtrack. \n\nProbably not the best film for India-Pakistan relations, however.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "It Ends A-List pocket Review\n\nWhat it is: A suspenseful supernatural drama about four friends stuck on a never-ending road who try to find meaning in their suffering.\u00a0\n\nWho it's for: Teens transitioning from high school to college, college grads transitioning from college to the work world, tender types who cried reading *The Giver* in grade school, and anyone surviving the unique horrors of the 21st century (endless social media feeds, COVID, climate disasters, etc.).\u00a0\n\nUnexpected surprise: I was surprised that this movie really isn't a horror movie. It's more about existential dread than jump scares. There's no gore. And it could be rated PG-13 if they had toned down the cursing.\u00a0\n\nFun fact: This is a tiny film getting in front of big audiences! The budget was just $80,000, and as of this writing, none of the cast have Wikipedia pages.\n\nOverall: This is an extremely divisive movie. I saw it with my best friend who said they hated every minute of it and found it very boring. I had the opposite reaction: I thought it was philosophical, meditative, and pleasantly ambiguous. Go see it with your friends so you can argue about it!",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "Neglected... a mini A-list review (you've been warned)\n\nListen... I admire when anyone can get a film made. It's tough. So kudos for getting\u00a0*Neglected*\u00a0made.\n\nHere are the high or low lights:\n\n* This is one of those blink and you'll miss it, tiny releases. It makes Vertical look like a studio.\n* A lot of middle aged white guys that all look alike.\n* Josh Duhamel does his best. A cop desperate to solve clues from a serial killer to save his teen (23) son's life. Sounds good, right?\n* Everyone else is kind of playing catch up to him.\n* This feels like a low-budget\u00a0*Law & Order*\\-style TV procedural. It's absolutely shot like one. Acted like one. Lots of close-ups. The music. It all screams TV.\n* Speaking of that no nudity, no cursing, next to no blood... a few minor icky moments. Again... TV-MA (maybe)\n* I'm convinced this was originally conceived as a TV pilot... the kind that a lower-level CBS would have. Is there a lower-level CBS? Maybe a Tubi original procedural.\n* There's so many places for MST3K-style jokes I couldn't keep track...\n   * Why does this tiny town have a media presence like a small city?\n   * When there's no actual case going on, why are all the background cops running around like they're trying to solve something?\n   * Why does Josh tell his friend he's leaving and not to tell anyone, then leaves literally next to a press conference with the mayor?\n   * Why doesn't the serial killer just tell Josh what's up instead of playing this game?\n   * Why is the game so easy? Literally Josh just goes from location to location that's been spelled out.\n   * How does this kid killer know everything that's happening? The writer treats him like he's Hannibal Lecter-level brilliant, but he's just an annoying 20-year-old.\n   * ADDED: I forgot but someone here reminded me...  this guy Josh is a retiring cop and he recoils in terror when he sees a cut off small body part or body like he's a teenager in a slasher movie. Hilarious.\n* Then the movie ends... but it doesn't. It keeps going like the last few minutes of a TV procedural (see previous note).\n* There's a slight reveal in this that's so insane and makes so little sense, but I don't want to spoil things. If I did, it would be five more notations of how dumb it is. But it would also have been a better movie if it was just about that insane reveal.\n\nHaving said all that... if you find this on Tubi or something, you might like it while you look at your phone.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "At one point did you pay for the subscription?\n\nThe sub says $20 but it's actually $30, at least in California. Did you just commit with the subscription if planning to see at least 2 movies a month?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Review for Hope\n\njust came out of the advanced Dolby screening they are doing all over the place today. \n\nAddressing the elephant in the room the CGI is about 10-15 years behind. Its worse in some scenes and better in others, but overall it leaves something to be desired.  But it's very tolerable \n\nThe first 90 min does an incredible job of building tension and the action sequences are top notch. Some perfectly time comedy allows you a moment to breath. The movie runs almost three hours and I never felt it until towards the end. \n\nThen the director makes one of the worst twists  in cinema history. I mean it's absolutely baffling. It's so awful it must be seen. He had a classic on his hands and he ruined it. It's almost like producers made him changes things to get all the money he needed or somthing. IDK\n\nThe story is almost non existent, there is zero character development, and zero lore about the creatures.\n\nAll that being said  it's a 1000 percent a movie that needs to be seen in theatres. It is very unique and is very much in its own category.  The first 90 min are worth the ticket price alone and the laughable story choices towards the end must be seen to be believed.   I'm still giving this a strong 7.5/10. Shame because  it could have been a 9/10.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "Question about Mass (2021).\n\nThat movie has showed up on the app intermittently, and every time I go to click it it's never playing near me. Until recently, at least: it's playing at a theater about an hour and a half away. It's frustrating, because I really want to see it and I live in the center-city region of Philadelphia and have had no problem accessing arthouse films until this. Does anyone know if Mass will be headed to more AMC's soon?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Anyone think they\u2019ll add extra times for Godzilla Minus Zero?\n\nAt the Chicago Dolby theater they only put 7pm showings for Godzilla Minus Zero. Very disappointing because I want to see it in that PLF and I\u2019m an hour away so I don\u2019t wanna go that late. Yall think they might add some times between now and then?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "mouse sighting at amc lincoln square dolby theater - psa\n\nhey y'all, just an alert that i fully saw a mouse jump out, grab a piece of popcorn in front of my neighbor, and scurry away like halfway during my killers of the flower moon showing. (great movie btw.) i'm going to call management in the morning as i got out of the screening quite late, but if that matters to you, now you know! never change, new york.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "Pixar has done it again with Hoppers\n\nCharming, cute, emotional, and richly animated, Hoppers is Pixar returning to form. The movie has the right amount of off-the-rails bonkers  and moments that tug at your heartstrings. There are plenty of jokes to go around too. My theater had a great time with Hoppers. Stick around for the mid-credit and post-credit scenes.",
+      "gold": "review",
+      "predicted": "review"
+    },
+    {
+      "text": "Worst Experience I\u2019ve Ever Had in a Theater.\n\nI started typing this and got increasingly more pissed off about the situation, so I apologize for the rant/length of this post:\n\nI\u2019m usually not one for posting in subreddits, however I keep getting notifications of people discussing their experiences so I figured I\u2019d share mine which happened a couple days ago.\n\nIt\u2019s a clickbait title, I won\u2019t lie. There\u2019s been countless movies that I\u2019ve gone to where the theater was in rough shape and people are rude/texting, but it\u2019s a movie, as long as the movie is good, I don\u2019t unusually mind.  I saw Iron Lung this past weekend and movie was lovely, I truly enjoyed every second of it, that is when I could fully focus on it. I\u2019ve been to countless movie theaters in my 26 years of life and have never once seen someone get kicked out of a movie. That changed during my screening of Iron Lung.\n\nI figured that going close to opening, I would be with likeminded people to myself, excited to see Mark\u2019s debut. What I hadn\u2019t counted on, was this movie gaining so much traction that normies started to go see it. There were (at least) three guys sitting behind me, commenting on the movie just about the entire time. If you live in NYC you\u2019ll come to grips with the fact that this happens allllllll the time and unfortunately ya just have to get used to it. The difference in this one was the children were loudly attempting to intentionally \u201crage bait\u201d the crowd into getting mad at them.\n\nWhenever the movie would hit a lull or a slower point, excitations of \u201cFat hairy C\\*\\*\\*\u201c and \u201cthick moist p\\*\\*\\*\\*\u201d could be heard from the back of the theater, as well as just general (unfunny) jokes in an attempt to make them the center of the movie going experience.\n\nEventually someone leaves the theater in an attempt to get someone in there to calm them down. This was met with countless yelling of things like \u201cYOU GO TELL ON US AND WE\u2019LL BEAT YOUR ASS\u201d.\n\nThat individual then gets security in the theater where security then walks through the two aisles in front of me (the rowdy group was sitting behind me) with a (quite bright) flashlight, while the movie is playing. Nothing comes of this interruption as the group was not confronted or asked to leave.\n\nDue to this, the group gets more brazen and louder. Comments of \u201cfuck you guys\u201d and \u201cfuck this movie\u201d start raining down on the crowd which got met with quite a few shushes, myself included. Since they were sitting toward the back of the theater and all of (in their eyes) their \u201cantagonizers\u201d were sitting in front of them, that\u2019s when they started throwing small food items.\n\nMore people leave to complain about them which leads to the security guard coming back and finally asking them to leave. This did not go well. Since the AMC security person doesn\u2019t have the power or backup to forcibly remove them, the group gets more rowdy. Throwing expletives at the employee, making dangerous threats to him and the crowd, making fun of him relentlessly and continuing to yell about their displeasure for the movie. This came at a very important part of the movie where a lot of plot was just overridden with \u201cf this movie and f all you\u201d.\n\nEventually, somehow, the security guard gets them to leave. More yelling, a ton more threats, all capped off with one of the individuals tossing his slushie all over the screen virtually ruining the next 45 minutes of the movie.\n\nDue to all this disruption, I think I missed around 3/5ths of the movie. There has to be a better way to handle this type of situation. Like I said, I\u2019ve never really had a \u201cbad\u201d movie going experience so I\u2019m sure this situation is a dime a dozen and it\u2019s not like they can add cops to every single AMC. But these dudes were throwing out threats like it was nothing and with the recent unrest in this country, for a second there, I genuinely thought a gun was about to be pulled.\n\nIt just seems unfortunate that there\u2019s one-two security guards for a massive four leveled theater where they have no real power to remove someone from the premises and no real training on how to handle this type of situation. I would hope that the kid throwing the slushie got some sort of penalty but it seems almost impossible to do so in NYC where they can just run into the street and get lost in the crowd.\n\nI\u2019m not sure what a real solution could be and I\u2019m interested to see what people have to say about this/if you\u2019ve had any experiences like this and how the AMC staff handled it there. You can\u2019t use force as I\u2019m sure it would make the situation worse, but the situation in whole seems mismanaged. Especially checking asiles with a flash light during the movie where the disruption most certainly was not.\n\nIn general, the concept of \u201crage baiting\u201d pisses me off. Just be a human being man, you don\u2019t have to intentionally piss someone off or spout bullshit to get a reaction. What happened to genuine conversations! But that\u2019s a rant for another post.\n\nAll in all though, Iron Lung, great movie. AMC NYC Lincoln square, rough time.\n\nTLDR: A rowdy group was able to disrupt a movie for a good 3/4 of it, until proper measures were taken to kick them out. Seems like AMC does not have the support needed for their staff to get potentially dangerous and rowdy individuals out of a screening.",
+      "gold": "complaint",
+      "predicted": "question"
+    },
+    {
+      "text": "Sick People At Theater\n\nSo I got a cold on Sunday watching Avengers: Endgame from sitting in between two people who were constantly coughing during the movie. I should have got up and left once I saw they were sick. Please people, if you\u2019re sick stay at home and not ruin people\u2019s moviegoing experience. This is a PSA to everyone to move your seat if you got sick people around you.",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "Fjord showtimes\n\nI\u2019m in a major city (DC) that usually gets showtimes when NY & LA do, and lists way ahead of time.\n\nBut even NYC has only Lincoln Square and allegedly Fjord opens limited on 10/9!\n\nDoes anyone have any idea when Fjord tickets go on sale or even listed showtimes? Or is this going to be one of those that I\u2019m searching for right before the awards season starts :(\n\nEDIT: as of 8:30 ish tonight there\u2019s showtimes at Georgetown for the 22nd!",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Heads-up: Musk has an intermission\n\nIt comes basically halfway (1hr 45) through the movie. It's 10 min long with an onscreen countdown and 5 min announcement halfway through \n\nIt's also extremely good, go see it if you can!",
+      "gold": "review",
+      "predicted": "question"
+    },
+    {
+      "text": "PSA: It is 7-4-2 on the main number (1-888-562-4262) to get to a human to cancel your A-List",
+      "gold": "psa",
+      "predicted": "psa"
+    },
+    {
+      "text": "How many sex scenes are in wicker?\n\nHi Reddit I was thinking about going to see wicker tomorrow night and I was wondering how sexual this movie is going to be and how long it will last for people who saw wicker already? Thanks a lot!!",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "No previews?\n\nA strange thing happened on Thursday. I went to see two new movies: Hot Spot and Mutiny. For both of them, the local AMC didn\u2019t do the normal 25 minutes of previews. I was on time so I didn\u2019t miss anything. I was all alone for Hot Spot, but for Mutiny a few other people came in 10-20 minutes late, and they were shocked because they had calculated having some time to get settled before the movie actually started.  \nIt was odd that it happened twice in the same day, but the staff said the previews have not been done away with and they don\u2019t know why the previews were skipped.  \nI guess don\u2019t count on that preview buffer time being a sure thing. It might make you late for your movie.",
+      "gold": "psa",
+      "predicted": "question"
+    },
+    {
+      "text": "PSA: Please don\u2019t tell fans when they react to be quiet or throw an attitude at them during Doctor Strange MVoM \u201c big \u201c moments.\n\nAs title says. if you\u2019re watching this film this Thursday or Friday ( maybe even Saturday ) except huge reactions from the crowds. This always happens during these big premieres for these big super hero movies. \n\nWhen we saw Spider-Man:NWH, there was a few grouches in the theater telling fans to be quiet and throwing attitude towards them, completely ruining their enjoyment. People wait years to watch these films, if an entire theater is yelling with excitement, either be apart of it or just sit there quiet. Let people be happy. \n\nIf you don\u2019t like fan reactions, then don\u2019t come. Watch the film on a Sunday at 10AM or just Stay home and be miserable there.",
+      "gold": "psa",
+      "predicted": "psa"
+    }
+  ]
+}

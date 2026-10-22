@@ -321,12 +321,14 @@ before training ever ran.
 
 | Measure          | Baseline | Trained | Difference |
 | ---------------- | -------- | ------- | ---------- |
-| Overall accuracy | 0.571    | 0.592   | +0.020     |
-| Macro F1         | 0.362    | 0.425   | +0.063     |
-| F1 — `complaint` | 0.000    | 0.000   | +0.000     |
-| F1 — `psa`       | 0.000    | 0.593   | +0.593     |
-| F1 — `question`  | 0.533    | 0.400   | -0.133     |
+| Overall accuracy | 0.837    | 0.592   | -0.245     |
+| Macro F1         | 0.806    | 0.425   | -0.382     |
+| F1 — `complaint` | 0.667    | 0.000   | -0.667     |
+| F1 — `psa`       | 0.870    | 0.593   | -0.277     |
+| F1 — `question`  | 0.774    | 0.400   | -0.374     |
 | F1 — `review`    | 0.914    | 0.706   | -0.208     |
+
+Baseline is BART-MNLI zero-shot using bare label names. With my definitions from label_definitions.txt, it scored 0.571 accuracy and 0.362 macro F1, which is 0.266 lower. The likely cause is the "This post is {}." template, which turns each definition into a long, ungrammatical hypothesis with negations in it. I report the stronger run so the comparison with my trained model is fair.
 
 **What I predicted before I looked:**
 
@@ -334,8 +336,33 @@ I predict the trained model's complaint F1 will beat the baseline's by at least 
 
 **What the gap actually means:**
 
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
+Fine-tuning added nothing. It made things worse. The trained model is below
+the zero-shot baseline on every measure: 0.245 lower in accuracy, 0.382 lower
+in macro F1, and lower on all four labels.
+
+My prediction was wrong on both counts. Complaint F1 didn't improve: the
+trained model scored 0.000 because it never predicted `complaint` once. The
+baseline also didn't make the mistake I expected. It got 3 of 5 complaints
+right, and the 2 it missed went to `question`, not `review`. Zero-shot never
+mistook a complaint for a review.
+
+The trained model's confusion matrix shows where it went wrong. It leans
+heavily on `review`, my largest class (89 of 224 training posts). It sent 4 of
+5 complaints, 5 of 12 questions and 5 of 13 PSAs to `review`. With only 23
+complaint posts to learn from, it never learned to pick that label. It was
+also unsure of itself: mean confidence was 0.47 on correct answers and 0.34 on
+wrong ones. Its most confident third was 100% accurate and its least
+confident third was 19%. That pattern looks like an undertrained model, not
+one that learned the wrong rules. Three epochs on 224 posts may be too little
+for DistilBERT, whose classification head starts from nothing. BART-MNLI is
+much larger and has already been trained on entailment, which suits this task.
+
+Limits on what this shows: it's one seed, and `complaint` has only 5 test
+posts, so its 0.667 vs 0.000 rests on a handful of posts. The direction of the
+gap is clear across every label, though. As trained, my model is worse than
+running BART-MNLI with no training. The next things to try are more epochs and
+class weighting for `complaint`, and the trained model should match or beat
+0.837 before it's worth using.
 
 ---
 
