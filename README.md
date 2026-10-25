@@ -329,6 +329,12 @@ before training ever ran.
   and fixed one of its own overstatements: it had said the model predicted
   only `review` and `psa` on every seed, when seed 42 also predicted
   `question`.
+- _Per-label error write-up:_ The AI wrote a script that re-ran the after
+  setup and saved every test prediction. It then grouped the 15 misclassified
+  complaints by where they went and drafted the write-up. It also noticed
+  that two of my "complaints" contain a film verdict, which under my own step
+  2 makes them `review`. That's a possible labelling inconsistency I hadn't
+  caught.
 
 **Pre-labelling disclosure:** Yes. AI pre-labelled the 307 rows that weren't cold-labelled, using my taxonomy and decision rule. I checked the 21 rows it flagged `unsure` myself, and re-checked every `psa` row against the step-3 test. For the remaining rows I read the AI's reasoning rather than re-deriving each label, so not every row got an independent read. I corrected 8 labels in total. The 24 cold rows were labelled by me with no AI help.
 
@@ -726,6 +732,67 @@ complaints across the three seeds went to `question` and none were called
 question mark or "anyone else?", rather than my rule that the question has
 to be the reason for the post, and 23 training complaints weren't enough to
 teach it the difference.
+
+---
+
+## Per-Label Error Write-Up
+
+**The worst label is `complaint`.** Its F1 is 0.000 on every seed, before and
+after the improvement. The run logs only count errors, so to read the actual
+posts I re-ran the after setup (10 epochs, seeds 42, 7 and 2024) from a
+separate script that saved every test prediction. It reproduced the logged
+run exactly: same accuracy per seed (0.857 / 0.755 / 0.776), and on seed 2024,
+the one I checked, the same final validation and training loss. The 15 complaint posts below are the 5 in each seed's test split.
+
+**Where they went:** 8 to `question`, 4 to `psa`, 3 to `review`. None were
+called `complaint`.
+
+**What the model did learn:** `complaint` was the model's second choice on 12
+of the 15. It gave complaint posts a mean complaint probability of 0.205,
+against 0.074 on everything else, so it picked up a real signal. But it never
+gave any test post more than 0.382, so `complaint` never won. With 23 training
+examples against 52 to 89 for the other labels, the signal was never strong
+enough to beat a bigger label.
+
+**What the posts have in common, by where they went:**
+
+- **To `question` (8): they're shaped like questions.** All 8 either ask
+  something or say "anyone else": _"Anybody else have a horrible crowd for
+  Scream 7?"_, _"Anyone else ever had this happen?"_ ("Corrupted You Can See
+  Everything"), _"Does anyone know why it's so bad? Am I alone in this?"_ (AMC
+  Pacific Place), and the rhetorical _"why do the studios drop so many good
+  movies in such a short time frame?"_. These are exactly the cases step 1 of
+  my decision rule sends away from `question`: rhetorical questions, "anyone
+  else?" about something already over, and questions tacked onto a vent. In
+  my data, 97% of `question` posts contain a question mark, but so do 58% of
+  complaints. The model learned the punctuation and not the exclusions. Two of
+  these are posts I used as examples in this README: the studios post is my
+  example `complaint`, and "Corrupted" is one of my cold-labelling hard cases.
+- **To `psa` (4): they carry facts about AMC or A-List.** These are prices
+  (_"Imax and dolby kids tickets are $18 and $17"_), a missing app
+  notification, a 70mm IMAX petition, and a live account of a concession
+  stand that was out of food. `psa` posts are fact-heavy, so facts pull
+  toward `psa` even when the post's purpose is to criticize.
+- **To `review` (3): they name a movie the poster just saw.** These are
+  "The first five minutes of FJORD", a mouse during _The Girl Who Leapt Through
+  Time_, and a disrupted _Iron Lung_ screening. FJORD is the `review` vs.
+  `complaint` boundary I flagged in my taxonomy.
+
+**What this says about my labels:** two of the `review` misses may be my
+labelling, not the model. The mouse post says _"Super cute movie"_, and the
+Iron Lung post says the _"movie was lovely, I truly enjoyed every second of
+it"_. Step 2 of my rule says a verdict on the film makes a post `review`, and
+that screening problems don't change it. That's the same reasoning I used for
+the Wildwood 9/10 hard case. By my own rule, those two arguably should be
+`review`, and the model was right. The petition post could also pass step 3's
+test, because a reader could sign it. So the error isn't only a lack of data.
+The `complaint` label holds a few posts my own rule would send elsewhere,
+which makes a small label even less consistent.
+
+**What I'd do with this:** re-check every `complaint` row against steps 1–3,
+especially posts with a film verdict or an actionable fact, before adding the
+30 new complaints from What's Still Broken. That way the new examples are
+added to a label that already follows the rule.
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
