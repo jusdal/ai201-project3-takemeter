@@ -379,18 +379,46 @@ class weighting for `complaint`, and the trained model should match or beat
 | 4.        |        |         |        |           |         |
 | 5.        |        |         |        |           |         |
 
+### Spread across seeds
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.592 | 0.531 | 0.551 | 0.061 |
+| Macro F1 | 0.425 | 0.303 | 0.326 | 0.121 |
+| F1 — `question` | 0.400 | 0.000 | 0.000 | 0.400 |
+| F1 — `review` | 0.706 | 0.731 | 0.818 | 0.112 |
+| F1 — `psa` | 0.593 | 0.483 | 0.486 | 0.110 |
+| F1 — `complaint` | 0.000 | 0.000 | 0.000 | 0.000 |
+
+Accuracy moved 0.061 across seeds. Enough that a criterion landing within that band can't really be called either way.
+
+The stability is misleading, though. In seeds 7 and 2024 the model predicts
+only `review` and `psa`. Seed 42 is the only seed where it predicts `question`
+at all (3 times), and it never predicts `complaint` on any seed. Accuracy stays in a narrow band because
+the model fails the same way every time, not because it's reliable. Seed 42 was
+also my best draw, so the single-seed numbers above (Baseline vs. Trained)
+flatter the trained model.
+
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |     |     |     |
-| ---------------- | --- | --- | --- |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
+Seed 42:
+
+| true \ predicted | question | review | psa | complaint |
+|---|---|---|---|---|
+| **question** | 3 | 5 | 4 | 0 |
+| **review** | 0 | 18 | 1 | 0 |
+| **psa** | 0 | 5 | 8 | 0 |
+| **complaint** | 0 | 4 | 1 | 0 |
 
 **My biggest off-diagonal number, and what it means:**
+
+5 real `question` posts were called `review` and none went the other way (tied
+with 5 `psa` → `review`, 1 the other way), so the model barely learned
+what makes a post a `question` (3 of 12 right) and falls back to `review`, my largest label, when
+it's unsure.
 
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
