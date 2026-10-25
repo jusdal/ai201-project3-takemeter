@@ -339,6 +339,17 @@ before training ever ran.
 
 ---
 
+## Stretch Features (declared)
+
+- **Per-label error write-up.** I'll write up the label the confusion matrix
+  says is worst, `complaint` (F1 0.000 on every seed, before and after),
+  covering which label it gets confused with and what the misclassified posts
+  have in common. It will be in the
+  [Per-Label Error Write-Up](#per-label-error-write-up) section below.
+  Declared after the main unit 6 runs and before the write-up was started.
+
+---
+
 ## Baseline vs. Trained
 
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
@@ -407,6 +418,9 @@ class weighting for `complaint`, and the trained model should match or beat
 Criteria 4 and 5 measure the dataset and my labelling, not the model, so they
 are the same on every seed. Criterion 4's cells are the largest share
 (`review`) and the smallest (`complaint`), and both pass by under 0.5 points.
+
+**Device:** all three seeds ran on `mps` (Apple Silicon GPU), torch 2.14.1, as
+recorded in `results_three_seeds_before.json`.
 
 ### Spread across seeds
 
@@ -619,6 +633,9 @@ the diagnosis points at training and not at the data.
 | 3. F1 on `psa` | ≥ 0.50 | 0.857 | 0.828 | 0.769 | MET |
 | 4. Label shares in `labels.csv` | none > 40%, none < 10% | 39.6% / 10.3% | 39.6% / 10.3% | 39.6% / 10.3% | MET |
 | 5. Agreement with staff labels | ≥ 75% | 96.7% | 96.7% | 96.7% | MET |
+
+**Device:** all three seeds ran on `mps` (Apple Silicon GPU), torch 2.14.1, as
+recorded in `results_three_seeds_after.json`.
 
 Spread across seeds, after:
 
