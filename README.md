@@ -373,11 +373,15 @@ class weighting for `complaint`, and the trained model should match or beat
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 | --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| 1. Overall accuracy | ≥ 0.75 | 0.592 | 0.531 | 0.551 | MISSED |
+| 2. F1 on `question` / `review` / `complaint` | each ≥ 0.65 | 0.400 / 0.706 / 0.000 | 0.000 / 0.731 / 0.000 | 0.000 / 0.818 / 0.000 | MISSED |
+| 3. F1 on `psa` | ≥ 0.50 | 0.593 | 0.483 | 0.486 | MISSED |
+| 4. Label shares in `labels.csv` | none > 40%, none < 10% | 39.6% / 10.3% | 39.6% / 10.3% | 39.6% / 10.3% | MET |
+| 5. Agreement with staff labels | ≥ 75% | 96.7% | 96.7% | 96.7% | MET |
+
+Criteria 4 and 5 measure the dataset and my labelling, not the model, so they
+are the same on every seed. Criterion 4's cells are the largest share
+(`review`) and the smallest (`complaint`), and both pass by under 0.5 points.
 
 ### Spread across seeds
 
@@ -433,13 +437,65 @@ it's unsure.
 
 | #   | Criterion | Target | Verdict | How I decided |
 | --- | --------- | ------ | ------- | ------------- |
-| 1   |           |        |         |               |
-| 2   |           |        |         |               |
-| 3   |           |        |         |               |
-| 4   |           |        |         |               |
-| 5   |           |        |         |               |
+| 1   | Overall accuracy | ≥ 0.75 | MISSED | Below target on all three seeds (0.531–0.592). The best seed misses by 0.158. |
+| 2   | F1 on `question`, `review`, `complaint` | each ≥ 0.65 | MISSED | Only `review` clears 0.65, on every seed. `complaint` is 0.000 on all three, and `question` is 0.000 on two. |
+| 3   | F1 on `psa` | ≥ 0.50 | MISSED | 0.593 on seed 42, but 0.483 and 0.486 on the other two. It has to hold on all three. |
+| 4   | Label shares | none > 40%, none < 10% | MET | `review` is 39.6% and `complaint` is 10.3%. Both pass, but narrowly. |
+| 5   | Agreement with staff | ≥ 75% | MET | 29 of 30 (96.7%). |
 
 **Diagnoses**
+
+All three misses have the same cause: **the model is undertrained for this
+much data.** It hasn't learned the smaller labels at all, so it guesses `review`
+or `psa`. The evidence:
+
+- **Training barely moved off chance.** A model guessing evenly among four
+  labels has a loss of about 1.39. After 3 epochs, the last logged training loss was
+  1.05, 1.05 and 0.98 across the seeds, and validation loss was still
+  falling at the last epoch on every seed (seed 42: 1.24 → 1.12 → 1.06). Training
+  stopped while the model was still improving.
+- **The errors don't sit on one boundary.** They drift toward the big labels.
+  Across the three seeds the model predicted `complaint` zero times and
+  `question` only 3 times. Every true label leaks into `review` or `psa`, in
+  one direction. A labelling problem would look different: confusion in both
+  directions on one particular pair.
+- **The labels themselves are learnable.** The zero-shot baseline, scored on
+  the same seed-42 test posts, got 0.837 accuracy, with F1 of 0.774 on
+  `question` and 0.667 on `complaint`. A model that has never seen my labels
+  can separate them from the label names alone, so the distinctions are
+  present in the text.
+- **My agreement report points away from labelling.** I agreed with staff on
+  29 of 30 posts, including posts chosen for being ambiguous. My one miss was
+  reading in an argument the post didn't make, not applying a boundary two
+  ways. That's under the staff taxonomy, not mine, so it's indirect evidence.
+  But it's the only measure I have of my consistency, and it says I apply
+  written rules consistently.
+
+Per miss:
+
+- **Criterion 1 (accuracy):** the cause is undertraining, as above. Accuracy
+  sits around 0.55 because the model gets most reviews right (18–19 of 19)
+  and about half the PSAs, and almost nothing else.
+- **Criterion 2 (`question` / `review` / `complaint`):** `review` passes
+  because it's the label the model falls back on. `complaint` fails for two
+  reasons together. It has the fewest examples (23 in training, 5 in test),
+  and the model never got far enough to learn a minority label. `question`
+  is the more surprising miss, with 52 training posts. On seeds 7 and 2024
+  most questions went to `psa` (7 of 12 and 11 of 12), not `review`. Both labels are often short,
+  factual posts about AMC, so `question` vs. `psa` is the boundary I'd check
+  in my own labels. But zero-shot gets `question` F1 0.774 on the same
+  posts, which points to the model, not my labels.
+- **Criterion 3 (`psa`):** `psa` is the model's second fallback label, so its
+  recall is reasonable (0.54–0.69) and its precision is poor (0.38–0.57). It
+  absorbs questions and complaints. It passed on seed 42 only. Partly that's a
+  lucky draw, and partly it's because the seed-42 model sent its overflow to
+  `review` instead.
+
+None of the five criteria is broken. Each one named a number I could check,
+so I've left them all as written. One reason in `criteria.md` turned out
+wrong: criterion 3 expected `psa` to be my smallest label, but it was
+`complaint`. That makes the target's reasoning weaker, not the criterion
+unmeasurable, so it isn't grounds for a revision.
 
 <!-- For each miss: the cause, and how you know. The four common causes are:
      too few examples for a label, a boundary you applied inconsistently, a
