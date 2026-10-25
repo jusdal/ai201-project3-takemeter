@@ -354,6 +354,12 @@ before training ever ran.
   [Per-Label Error Write-Up](#per-label-error-write-up) section below.
   Declared after the main unit 6 runs and before the write-up was started.
 
+**Not declared:** the [Confidence Check](#confidence-check) section below. I
+didn't declare it before building it. The numbers come from `results.json`
+and the three-seed files, which I'd already quoted in my write-up before
+deciding to add it. I'm including it because the analysis is useful, not as a
+claim on the stretch point.
+
 ---
 
 ## Baseline vs. Trained
@@ -794,6 +800,55 @@ which makes a small label even less consistent.
 especially posts with a film verdict or an actionable fact, before adding the
 30 new complaints from What's Still Broken. That way the new examples are
 added to a label that already follows the rule.
+
+---
+
+## Confidence Check
+
+_Not declared before it was built. See [Stretch Features](#stretch-features-declared)._
+
+**The question:** are the model's confident predictions right more often than
+its unsure ones? The notebook ranks the 49 test predictions by confidence (the
+top softmax probability) and scores the most confident third and the least
+confident third, 16 posts each.
+
+| Run | Seed | Mean confidence, right | Mean confidence, wrong | Accuracy, most confident third | Accuracy, least confident third |
+|---|---|---|---|---|---|
+| Before (3 epochs) | 42 | 0.475 | 0.340 | 1.000 | 0.188 |
+| Before (3 epochs) | 7 | 0.482 | 0.352 | 0.938 | 0.125 |
+| Before (3 epochs) | 2024 | 0.524 | 0.365 | 0.938 | 0.125 |
+| After (10 epochs) | 42 | 0.853 | 0.638 | 1.000 | 0.625 |
+| After (10 epochs) | 7 | 0.847 | 0.651 | 0.938 | 0.500 |
+| After (10 epochs) | 2024 | 0.843 | 0.582 | 1.000 | 0.375 |
+
+**Yes, on every seed in both runs.** The most confident third is 94–100%
+accurate every time. The least confident third is never better than 63%, and
+right answers always carry higher mean confidence than wrong ones.
+
+What changes between the runs:
+
+- **Before, confidence was low across the board.** Even right answers averaged
+  under 0.53, not far above the 0.25 of an even four-way guess. The ranking
+  still worked, though. The few posts the model was sure about were
+  almost all right, and the bottom third was 13–19% accurate, below chance.
+  That fits the undertraining diagnosis: the model had learned a few easy
+  cases and was guessing on the rest.
+- **After, the model is much more confident, and still ranked correctly.** Mean
+  confidence on right answers rose to about 0.85. The least confident third
+  improved to 38–63%, because the model now gets many of its harder posts right.
+- **Confidence doesn't catch every error.** Mean confidence on wrong answers
+  also rose, to 0.58–0.65. The Per-Label Error Write-Up shows confident misses:
+  the FJORD complaint was called `review` at 0.943. The model is most likely
+  to be confidently wrong on complaints that look like another label on the
+  surface.
+
+**Limits:** each third is 16 posts, so one post moves its accuracy by about 6
+points. The pattern holds across all six runs, which matters more than any
+single number.
+
+**What it would be good for:** a review queue. Posts below a confidence
+cutoff could go to a person, and that's where most errors are. Even after
+training, at least 6 of 16 least-confident posts are wrong on every seed.
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
