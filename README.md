@@ -739,8 +739,9 @@ teach it the difference.
 
 **The worst label is `complaint`.** Its F1 is 0.000 on every seed, before and
 after the improvement. The run logs only count errors, so to read the actual
-posts I re-ran the after setup (10 epochs, seeds 42, 7 and 2024) from a
-separate script that saved every test prediction. It reproduced the logged
+posts I re-ran the after setup (10 epochs, seeds 42, 7 and 2024) with
+[`complaint_errors.py`](complaint_errors.py), which saved every test
+prediction to `complaint_predictions_after.json`. It reproduced the logged
 run exactly: same accuracy per seed (0.857 / 0.755 / 0.776), and on seed 2024,
 the one I checked, the same final validation and training loss. The 15 complaint posts below are the 5 in each seed's test split.
 
