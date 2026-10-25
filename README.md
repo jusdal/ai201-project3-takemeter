@@ -460,7 +460,7 @@ it's unsure.
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** **_ / 30 = _**%
+**Agreement rate:** **29 / 30 = 96.7%**
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -484,25 +484,35 @@ it's unsure.
 
 **1.**
 
-> _The post:_
+> _The post:_ "Just realised the shoes I set every PB in this year are the ones I bought by accident in the wrong size."
 >
-> _Staff said / I said:_
+> _Staff said / I said:_ `reaction` / `analysis`
 >
-> _My call, and why:_
+> _My call, and why:_ Staff is right. I labelled it `analysis` because I read an argument into it: the wrong shoe size helped rather than hurt, or the writer had been wearing the wrong size all along. But the post never makes that claim. I supplied it. `analysis` needs the post itself to make an argument, with the fact doing work in it. This one states a fact and stops. What it actually does is report something the writer just noticed ("Just realised") about their own running, which is `reaction`. Rule 3 (recency doesn't outrank evidence) only applies when the fact is load-bearing, and here there's no stated argument for it to carry.
 >
-> _Which pile:_
-
-**2.**
-
-> _The post:_
->
-> _Staff said / I said:_
->
-> _My call, and why:_
->
-> _Which pile:_
+> _Which pile:_ (a) — the rule covered it and I applied it loosely. The definition says `analysis` *makes* an argument. I counted an argument the post only implied, so I was judging what the writer might have meant instead of what they wrote.
 
 **What the pattern in my disagreements tells me:**
+
+With one disagreement in 30 there's hardly a pattern, and that is the main
+finding. I applied a taxonomy I didn't write the same way its authors did on
+29 of 30 posts, including posts staff picked because they're ambiguous. That's
+evidence I can apply written rules consistently, which makes it less likely my
+own 321 labels are full of inconsistency.
+
+The one miss shows the kind of mistake I make: reading in an argument the
+writer implies but doesn't state. That matters for my own taxonomy, whose
+decision rule has the same kind of judgement in it ("the question has to be
+the reason for the post", "would another member do something differently?").
+Where I applied those rules generously, labels could drift. The most likely
+place is the `psa` vs. `complaint` boundary, which I already found hardest.
+
+It doesn't explain my model's results, though. The trained model doesn't fail
+on one boundary. It sends every label toward `review`, across all three seeds,
+and the zero-shot baseline scores 0.837 on the same labels. A labelling
+problem would show up as confusion on particular boundaries. Errors that all
+drift toward the largest class point to a model problem: too little data and
+training (23 complaint posts, 3 epochs), not inconsistent labels.
 
 ---
 
