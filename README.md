@@ -574,21 +574,73 @@ training (23 complaint posts, 3 epochs), not inconsistent labels.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** One training setting: `EPOCHS` from 3 to 10. Everything
+else is unchanged: same `labels.csv`, same seeds (42, 7, 2024), learning rate
+2e-5, batch size 16 and max length 128.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Undertraining. Validation loss was still
+falling at epoch 3 on every seed, training loss ended around 1.0 (chance is
+about 1.39), and the model never predicted `complaint` and almost never
+`question`. Zero-shot scoring 0.837 on the same labels, and 96.7% agreement
+with staff, both point away from relabelling. So this is the one case where
+the diagnosis points at training and not at the data.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 | --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| 1. Overall accuracy | ≥ 0.75 | 0.857 | 0.755 | 0.776 | MET |
+| 2. F1 on `question` / `review` / `complaint` | each ≥ 0.65 | 0.889 / 0.947 / 0.000 | 0.640 / 0.872 / 0.000 | 0.741 / 0.900 / 0.000 | MISSED |
+| 3. F1 on `psa` | ≥ 0.50 | 0.857 | 0.828 | 0.769 | MET |
+| 4. Label shares in `labels.csv` | none > 40%, none < 10% | 39.6% / 10.3% | 39.6% / 10.3% | 39.6% / 10.3% | MET |
+| 5. Agreement with staff labels | ≥ 75% | 96.7% | 96.7% | 96.7% | MET |
+
+Spread across seeds, after:
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.857 | 0.755 | 0.776 | 0.102 |
+| Macro F1 | 0.673 | 0.585 | 0.602 | 0.089 |
+| F1 — `question` | 0.889 | 0.640 | 0.741 | 0.249 |
+| F1 — `review` | 0.947 | 0.872 | 0.900 | 0.076 |
+| F1 — `psa` | 0.857 | 0.828 | 0.769 | 0.088 |
+| F1 — `complaint` | 0.000 | 0.000 | 0.000 | 0.000 |
 
 **Did it help, and how do I know:**
+
+Yes, a lot, but not on the label that needed it most. Criteria 1 and 3 went
+from MISSED to MET, so the run went from 2 of 5 to 4 of 5. Accuracy rose by
+about 0.22–0.27 on every seed (seed 42: 0.592 → 0.857), and macro F1 rose by
+about 0.25–0.28. On seed 42 the trained model now beats the zero-shot
+baseline on accuracy (0.857 vs. 0.837), which it was 0.245 behind before.
+
+The evidence that undertraining was the cause:
+
+- **The collapse is gone.** Before, the model predicted `question` 3 times
+  across all three seeds. Now it gets 8–12 of 12 questions right on every
+  seed. `question` F1 went from 0.400 / 0.000 / 0.000 to 0.889 / 0.640 / 0.741.
+- **Loss kept falling, with no sign of overfitting.** Validation loss dropped
+  on every epoch on every seed (seed 42: 1.22 at epoch 1 → 0.51 at epoch 10)
+  and was only levelling off by epoch 10. It never turned back up.
+- **Confidence now means something.** Mean confidence on right answers rose
+  from about 0.5 to 0.85 on every seed.
+
+**What it didn't fix:** `complaint` is still 0.000 on every seed. The model
+still never predicts it. The pattern of its misses has changed, though, and
+the change is informative. Before, complaints went to `review` like
+everything else. Now most go to `question` (2, 3 and 3 of 5), and no real
+question was ever called `complaint`. That's my hardest boundary from Milestone 2,
+`question` vs. `complaint`, showing up once the model is trained enough to
+learn boundaries at all. With only 23 complaints in training, the model learns
+the side of that boundary it has more examples of.
+
+**The new spread:** accuracy now moves 0.102 across seeds, just over the
+10-point line, where before it was 0.061. The notebook calls this a sign the
+dataset is too small for a stable measure, and I agree. With 49 test posts,
+each post is worth about 2 points of accuracy, so 0.102 is 5 posts. The spread
+grew because the model now makes real distinctions, and which posts land in
+each test split matters more. Criterion 1 passes on seed 7 by 0.005, less than
+one post, so it's a pass I wouldn't lean on.
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
