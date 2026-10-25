@@ -293,7 +293,8 @@ before training ever ran.
   the step-3 "would another member do something differently" test, since
   that was the label most likely to have absorbed venting disguised as a
   heads-up.
-- _What came back:_ 86 confirmed, 1 flipped — "just a heads up for any women
+- _What came back:_ 86 confirmed, 1 flipped (the other of my 2 `psa` →
+  `complaint` flips happened on the first pass) — "just a heads up for any women
   going to AMC Lincoln Square" moved from `psa` to `complaint`, because "be
   vigilant" gives a reader nothing concrete to act on, unlike the mouse- and
   coyote-sighting posts that name a specific location worth being alert at.
@@ -305,7 +306,31 @@ before training ever ran.
   night, not a theater-wide issue, so avoiding that location wouldn't do
   anything.
 
-**Pre-labelling disclosure:** Yes. AI pre-labeled the 307 rows that weren’t cold-labeled, using my taxonomy and decision rule. I then read and checked every row myself and corrected 8 of them. The 24 cold rows were labeled by me with no AI help.
+**Moment 3 (unit 6)**
+
+- _What I asked for:_ Help reading my results. I asked what F1 means, asked
+  for feedback on my prediction, and asked for help with the gap,
+  diagnosis and improvement write-ups.
+- _What came back:_ The AI noticed that my first baseline had run with the
+  template's example definitions, not mine, and had me re-run it. It
+  suggested the bare-names comparison run, which showed my definitions
+  cost the zero-shot model 0.266 accuracy, and traced that to the hypothesis
+  template. It read the confusion matrices and training logs and pointed out
+  that every error drifted toward `review` and that validation loss was still
+  falling at epoch 3. That led to the undertraining diagnosis and the epoch
+  change. After the re-run, it spotted that `complaint` errors had moved from
+  `review` to `question`. It drafted most of the unit 6 write-up: "What the gap
+  actually means", the diagnoses, "Did it help" and this section. It also
+  tightened the wording of my prediction, which was my own idea.
+- _What I changed:_ I made the calls. I used the stronger bare-names baseline
+  in my table and chose to keep my criteria unrevised. On my one staff
+  disagreement, I explained the argument I had read into the post, and the
+  write-up was rebuilt around my actual reasoning. The AI also caught
+  and fixed one of its own overstatements: it had said the model predicted
+  only `review` and `psa` on every seed, when seed 42 also predicted
+  `question`.
+
+**Pre-labelling disclosure:** Yes. AI pre-labelled the 307 rows that weren't cold-labelled, using my taxonomy and decision rule. I checked the 21 rows it flagged `unsure` myself, and re-checked every `psa` row against the step-3 test. For the remaining rows I read the AI's reasoning rather than re-deriving each label, so not every row got an independent read. I corrected 8 labels in total. The 24 cold rows were labelled by me with no AI help.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
@@ -651,10 +676,39 @@ one post, so it's a pass I wouldn't lean on.
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+**Criterion 2 (`question`, `review`, `complaint` each ≥ 0.65 F1): still missed.**
+`complaint` is 0.000 on all three seeds, and `question` dips to 0.640 on
+seed 7.
+
+- _What I'd do:_ Add about 30 more `complaint` posts, labelled with the same
+  decision rule and care as the first batch, which would roughly double it
+  to about 60. That would push it toward the 20% share my criterion 4 allows.
+  The after-run points at examples now, not training. The model learns
+  `question`, `review` and `psa` well at 10 epochs, and its `complaint`
+  errors go to `question`, the label beside it in the decision rule. With 23
+  training examples it sees about two questions for every complaint, so it
+  learns the side it has more of. I'd change only that and re-run all three
+  seeds, so the effect can be told apart from the epoch change.
+- _Why I stopped:_ Milestone 5 allows one change, and I spent it on epochs
+  because that's what the before-diagnosis pointed at. Collecting and
+  labelling 30 more complaints with the same care is a second full labelling
+  pass, which was more than the time left. Complaints are also slow to find:
+  even the first batch ran thin, and I had to hand-collect 10 of them.
+
+I'd also treat the passes as fragile. Accuracy spread is 0.102 and criterion 1
+passes on seed 7 by less than one test post, so a bigger test set would come
+before any claim that the model is reliable.
+
 **The gap between what I meant my labels to capture and what the model
 learned:**
 
-<!-- Two sentences. Your confusion matrix is the evidence. -->
+I meant `complaint` to capture why a post was written, criticism of AMC or the
+theater experience that isn't asking for help, but after training 8 of the 15
+complaints across the three seeds went to `question` and none were called
+`complaint`. The model likely learned the surface of a question, such as a
+question mark or "anyone else?", rather than my rule that the question has
+to be the reason for the post, and 23 training complaints weren't enough to
+teach it the difference.
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
